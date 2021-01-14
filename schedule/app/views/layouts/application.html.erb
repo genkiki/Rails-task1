@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
     <%= yield %>
+    <footer>
+      <h2>現在の日付 : <%= @date %></h2>
+    </footer>
   </body>
 </html>
