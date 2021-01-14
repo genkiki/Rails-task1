@@ -1,0 +1,54 @@
+<h1>スケジュール</h1>
+<%= @test %>
+
+<div class="records">
+    <div class="record-title">
+    </div>
+    <div class="start">
+    </div>
+    <div class="end">
+    </div>
+    <div class="record-allday">
+    </div>
+    <div class="update">
+    </div>
+    <div class="confirmation">
+    </div>
+</div>
+<div class="container">
+<table class="records">
+    <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>終日</th>
+        <th>スケジュール更新日</th>
+        <th>確認</th>
+        <th>編集</th>
+        <th>削除</th>
+    </tr>
+
+<%
+    @records.each do |record|
+%>
+    <tr>
+        <td><%= record.id %></td>
+        <td><%= record.title %></td>
+        <td><%= record.start %></td>
+        <td><%= record.end %></td>
+        <td><%= record.allday %></td>
+        <td><%= record.updated_at %></td>
+        <td><%= link_to("確認","/schedule/#{record.id}") %></td>
+        <td><%= link_to("編集","/schedule/#{record.id}/edit") %></td>
+        <td><%= link_to '削除', "/schedule/#{record.id}/delete", method: :delete, data: { confirm: '削除しますか？' } %></td>
+    </tr>
+<%
+    end
+%>
+
+</table>
+
+<%= link_to("新規登録","/schedule/new") %>
+
+</div>
