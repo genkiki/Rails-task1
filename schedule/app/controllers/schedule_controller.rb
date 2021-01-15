@@ -21,6 +21,7 @@ class ScheduleController < ApplicationController
     def create
         @record = Record.new(params.require(:record).permit(:title, :start, :end, :allday, :memo))
         if @record.save
+            flash[:notice] = "スケジュールを新規登録しました"
             redirect_to "/schedule"
         else
             render "new"

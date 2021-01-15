@@ -16,6 +16,9 @@
     </div>
 </div>
 <div class="container">
+<% if flash.notice %>
+    <p class="notice"><%= flash.notice %></p>
+<% end %>
 <table class="records">
     <tr>
         <th>ID</th>
@@ -38,7 +41,7 @@
         <td><%= record.start %></td>
         <td><%= record.end %></td>
         <td><%= record.allday %></td>
-        <td><%= record.updated_at %></td>
+        <td><%= record.updated_at.to_s(:datetime_jp) %></td>
         <td><%= link_to("確認","/schedule/#{record.id}") %></td>
         <td><%= link_to("編集","/schedule/#{record.id}/edit") %></td>
         <td><%= link_to '削除', "/schedule/#{record.id}", method: :delete, data: { confirm: '削除しますか？' } %></td>
