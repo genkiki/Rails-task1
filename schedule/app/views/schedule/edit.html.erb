@@ -1,6 +1,6 @@
-<h1>スケジュール作成</h1>
+<h1>スケジュール編集</h1>
 <%= render "shared/error", obj: @record %>
-<%= form_for @record, url: "/schedule" do |f| %>
+<%= form_for @record, url: "/schedule/#{@record.id}" do |f| %>
 <table>
     <tr>
         <th><%= f.label :title ,"タイトル" %></th>
@@ -23,6 +23,6 @@
         <td><%= f.text_area :memo %></td>
     </tr>
 </table>
-<%= f.submit "登録完了"%>
+<%= f.submit "編集完了"%>
 <% end %>
 <%= link_to "一覧に戻る", :schedule_index %>

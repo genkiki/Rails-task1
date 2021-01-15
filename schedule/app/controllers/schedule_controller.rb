@@ -27,4 +27,19 @@ class ScheduleController < ApplicationController
             render "new"
         end
     end
+
+    def edit
+        @record = Record.find_by(id: params[:id])
+    end
+
+    def update
+        @record = Record.find(params[:id])
+        result_update = @record.update(params.require(:record).permit(:title, :start, :end, :allday, :memo))
+        if result_update
+            flash[:notice] = "ID「#{@record.id}」のスケジュールを更新しました"
+            redirect_to "/schedule"
+        else
+            render "edit"
+        end
+    end
 end
