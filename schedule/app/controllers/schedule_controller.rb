@@ -5,9 +5,9 @@ class ScheduleController < ApplicationController
         @records = Record.all
     end
 
-    def delete
+    def destroy
         Record.find_by(id: params[:id]).delete
-        redirect_to("/")
+        redirect_to("/schedule")
     end
 
     def show

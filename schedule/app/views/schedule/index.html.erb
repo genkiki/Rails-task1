@@ -41,7 +41,7 @@
         <td><%= record.updated_at %></td>
         <td><%= link_to("確認","/schedule/#{record.id}") %></td>
         <td><%= link_to("編集","/schedule/#{record.id}/edit") %></td>
-        <td><%= link_to '削除', "/schedule/#{record.id}/delete", method: :delete, data: { confirm: '削除しますか？' } %></td>
+        <td><%= link_to '削除', "/schedule/#{record.id}", method: :delete, data: { confirm: '削除しますか？' } %></td>
     </tr>
 <%
     end

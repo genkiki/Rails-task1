@@ -33,4 +33,4 @@
 
 <%= link_to("一覧に戻る","/") %>
 <%= link_to("編集","shedule/#{@record.id}/edit") %>
-<%= link_to '削除', "/schedule/#{@record.id}/delete", method: :delete, data: { confirm: '削除しますか？' } %>
+<%= link_to '削除', "/schedule/#{@record.id}", method: :delete, data: { confirm: '削除しますか？' } %>
