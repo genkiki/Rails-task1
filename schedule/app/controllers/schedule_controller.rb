@@ -13,4 +13,17 @@ class ScheduleController < ApplicationController
     def show
         @record = Record.find_by(id:params[:id])
     end
+
+    def new
+        @record = Record.new
+    end
+
+    def create
+        @record = Record.new(params.require(:record).permit(:title, :start, :end, :allday, :memo))
+        if @record.save
+            redirect_to "/schedule"
+        else
+            render "new"
+        end
+    end
 end
