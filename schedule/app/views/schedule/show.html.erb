@@ -1,0 +1,36 @@
+<h1>スケジュール詳細</h1>
+
+<table>
+    <tr>
+        <th>タイトル</th>
+        <td><%= @record.title %></td>
+    </tr>
+    <tr>
+        <th>開始日</th>
+        <td><%= @record.start %></td>
+    </tr>
+    <tr>
+        <th>投稿日時</th>
+        <td><%= @record.created_at %></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td>
+<%
+    if @record.allday
+%>
+        ○
+<%
+    end
+%>
+        </td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @record.memo %></td>
+    </tr>
+</table>
+
+<%= link_to("一覧に戻る","/") %>
+<%= link_to("編集","shedule/#{@record.id}/edit") %>
+<%= link_to '削除', "/schedule/#{@record.id}/delete", method: :delete, data: { confirm: '削除しますか？' } %>
